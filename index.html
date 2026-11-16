@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Campus Maintenance Requests Management System">
+
+    <title>Campus Maintenance Requests</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Campus Maintenance Requests</h1>
+        <p>Report and track campus maintenance problems.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#manage">Manage Records</a>
+        <a href="#about">About</a>
+
+        <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+            🌙 Dark Mode
+        </button>
+    </nav>
+
+    <main>
+
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Dashboard</h2>
+            <p>Welcome to the Campus Maintenance Requests Management System.</p>
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+                    <h3>Total Requests</h3>
+                    <p id="totalRequests">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Pending</h3>
+                    <p id="pendingRequests">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>In Progress</h3>
+                    <p id="progressRequests">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Completed</h3>
+                    <p id="completedRequests">0</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Manage Records Section -->
+        <section id="manage">
+            <h2>Manage Maintenance Requests</h2>
+
+            <!-- Request Form -->
+            <div class="form-container">
+
+                <h3 id="formHeading">Add New Maintenance Request</h3>
+
+                <form id="requestForm">
+
+                    <input type="hidden" id="recordId">
+
+                    <div class="form-group">
+                        <label for="title">Request Title</label>
+                        <input type="text" id="title" minlength="3" maxlength="80" placeholder="Enter request title"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Furniture">Furniture</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+
+                        <textarea id="description" minlength="5" maxlength="300" rows="4"
+                            placeholder="Describe the maintenance problem" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Status</label>
+
+                        <select id="status" required>
+                            <option value="Pending">Pending</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submitButton">
+                        Add Request
+                    </button>
+
+                    <button type="button" id="cancelEdit" hidden>
+                        Cancel Edit
+                    </button>
+
+                </form>
+
+                <p id="message" role="status" aria-live="polite"></p>
+
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="search-container">
+
+                <input type="search" id="searchInput" placeholder="Search by request title..."
+                    aria-label="Search requests by title">
+
+                <select id="statusFilter" aria-label="Filter by status">
+                    <option value="">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+            </div>
+
+            <!-- Records Table -->
+            <h3>Maintenance Records</h3>
+
+            <p id="recordCount">Showing 0 records</p>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recordsTableBody">
+                        <!-- JavaScript will display records here -->
+                    </tbody>
+                </table>
+
+            </div>
+
+            <p id="emptyMessage" hidden>
+                No maintenance requests found.
+            </p>
+
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+
+            <h2>About This Project</h2>
+
+            <p>
+                The Campus Maintenance Requests Management System
+                allows students and staff to report campus maintenance
+                problems and track their progress.
+            </p>
+
+            <p>
+                <strong>Project Name:</strong>
+                Campus Maintenance Requests
+            </p>
+
+            <p>
+                <strong>Student Name:</strong>
+                Davies Mwila
+            </p>
+
+            <p>
+                <strong>Student Number:</strong>
+                202500779
+            </p>
+
+            <p>
+                <strong>Data Storage:</strong>
+                This version uses browser demonstration data stored
+                using localStorage.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Campus Maintenance Requests Management System</p>
+        <p>Mulungushi University | ICT251 Web Technologies</p>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
